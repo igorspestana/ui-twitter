@@ -13,13 +13,15 @@ Rodar
 ```
  npm run dev
 ```
-Limpando arquivos
-- diretório assets
+### Arquivos e diretórios que devem ser deletados:
+- Diretório assets
 - App.css
 - App.tsx
 - index.css
 
 ---
+
+<br>
 
 ## Vite
 
@@ -35,6 +37,7 @@ Vite é um framework de desenvolvimento de aplicativos da web moderno, rápido e
 
 - Ferramentas de desenvolvimento integradas: O Vite inclui ferramentas de desenvolvimento integradas como um servidor HTTP embutido, um monitor de recursos e um console JavaScript para depuração.
 
+<br>
 
 # 2. Compilers e Bundlers
 
@@ -44,8 +47,7 @@ Compiladores são usados para compilar código de linguagens de alto nível (com
 
 Bundlers são usados para agrupar vários arquivos JavaScript e CSS em um único arquivo. Isso torna mais fácil carregar os arquivos no navegador e também reduz o tempo de carregamento da página. Um exemplo de bundler é o Webpack, que pode ser usado para agrupar vários arquivos JavaScript e CSS em um único arquivo. Além disso, ele também pode ser usado para minificar esses arquivos, reduzindo assim o tempo de carregamento da página.
 
-
----
+<br>
 
 # 3. Components
 
@@ -74,14 +76,31 @@ export default MyComponent;
 ```
 
 <aside>
-💡 Components são funções que retornam javascript
+💡 Components são funções que retornam javascript.
 
 </aside>
+
+<br>
+
+## Estrutura de um componente
+
+- importação de dependências
+- importação de componentes
+- importação de arquivos
+- interface do typescript
+- lógica javascript
+- declaração da função (pode ser exportada aqui)
+  - return com html dentro de ()
+    - javascript dentro do html dentro de {}
+- exportação da função (pode ser exportada na declaração)
+
+<br>
 
 ## Propriedades e Children
 
 Propriedades e children são elementos fundamentais para a criação de componentes reutilizáveis e flexíveis no React.
 
+<br>
 
 ### Propriedades
 
@@ -105,6 +124,7 @@ const MyComponent = (props) => {
        <h1>{props.name}</h1> // John 
        <h2>{props.age}</h2> // 25   </div> ); };
 ```
+<br>
 
 ### Children
 
@@ -114,6 +134,7 @@ const App = () => { return ( <MyComponent> <p>Hello World!</p> </MyComponent> );
 
 const MyComponent = (props) => { return ( <div className="my-component"> {props.children} </div> ); };
 
+<br>
 
 # 4. Typescript
 
@@ -140,6 +161,29 @@ function saudar(pessoa: Pessoa) {
 let p1 = { nome: "João", idade: 20 }; 
 ```
 
+```
+//Typescript
+import React from 'react';
+ 
+interface HelloWorldProps {
+  name: string;
+}
+ 
+export function HelloWorld(props: HelloWorldProps) {
+  return <h1>Hello {props.name}!</h1>;
+};
+```
+
+```
+//Javascript 
+
+import React from 'react';
+
+export function HelloWorld(props) {
+return <h1>Hello {props.name}!</h1>;
+};
+```
+
 O TypeScript oferece uma série de recursos que ajudam os desenvolvedores a escrever código JavaScript de forma mais eficiente. Alguns dos principais recursos incluem:
 
 - Tipagem estática: Permite que os desenvolvedores especifiquem o tipo de dados para variáveis, parâmetros e funções. Isso ajuda a evitar erros comuns e garante que o código seja executado corretamente.
@@ -149,3 +193,71 @@ O TypeScript oferece uma série de recursos que ajudam os desenvolvedores a escr
 - Compatibilidade com ECMAScript: O TypeScript é compatível com as versões mais recentes do ECMAScript, permitindo que os desenvolvedores usem as últimas funcionalidades do JavaScript sem se preocupar com incompatibilidades entre navegadores.
 
 - Ferramentas de depuração: O TypeScript fornece ferramentas de depuração integradas, permitindo que os desenvolvedores encontrem erros rapidamente e corrijam-nos antes da produção.
+
+<br>
+
+# 5. CSS
+
+
+A aplicação do CSS no React difere da aplicação de CSS em HTML tradicional de várias maneiras. Primeiro, o React usa JavaScript para definir estilos, em vez de usar arquivos externos. Isso significa que os estilos são definidos dentro dos componentes e não precisam ser carregados separadamente. Além disso, o React usa um sistema de nomeação diferente para seus estilos, chamado CSS-in-JS. Isso permite que os desenvolvedores criem estilos dinâmicos e reutilizáveis ​​que podem ser facilmente compartilhados entre componentes. Finalmente, o React também oferece recursos adicionais como animações e temas que não são possíveis com CSS tradicional.
+
+O CSS é usado para estilizar aplicações React, assim como qualquer outra aplicação web. No entanto, o React oferece algumas maneiras diferentes de adicionar estilos à sua aplicação.
+
+Um exemplo de código para adicionar estilos CSS a uma aplicação React é usando o atributo style:
+
+```
+// Exemplo 1: Usando style 
+import React from 'react'; 
+ 
+  return (    
+
+    <div style={{ borderRadius: 8}}> // Aqui passamos a propriedade css. O primeito cojunto de {} é para indicar que estamos inserindo javascript no html e o segundo é porque a propriedade css é inserida como um objeto e por isso deve estar entre {}      
+
+      <h1>Hello World!</h1>    
+
+    </div>  
+
+  ); } export default MyComponent;
+```
+```
+// Exemplo 2: Usando style 
+import React from 'react'; 
+ 
+// Aqui criamos um objeto com as propriedades do CSS que queremos usar. 
+const MyComponentStyles = {  
+
+    backgroundColor: '#FF0000',     // A propriedade backgroundColor é o mesmo que background-color no CSS.  
+
+    fontSize: '20px'     // A propriedade fontSize é o mesmo que font-size no CSS.  
+
+  };  
+
+  return (    
+
+    <div style={MyComponentStyles}>       // Aqui passamos o objeto MyComponentStyles para a propriedade style do elemento.      
+
+      <h1>Hello World!</h1>    
+
+    </div>  
+
+  ); } export default MyComponent;
+```
+
+Outra maneira de adicionar estilos CSS à sua aplicação React é usando folhas de estilo externas. Para fazer isso, você precisa importar as folhas de estilo em seu arquivo JavaScript e, em seguida, usá-las como um objeto JavaScript: 
+
+```
+// Exemplo 1: Usando className
+
+import React from 'react';
+import './style.css';
+ 
+const MyComponent = () => {
+  return (
+    <div className="container">
+      <h1>Hello World!</h1>
+    </div>
+  );
+}
+ 
+export default MyComponent;
+```
