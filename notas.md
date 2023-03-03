@@ -261,3 +261,51 @@ const MyComponent = () => {
  
 export default MyComponent;
 ```
+
+<aside>
+💡 Recomendado resetar o CSS removendo o margin e o padding e usando border-box para que o padding não altera a width e a height do elemento.
+
+```
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+```
+</aside>
+
+## REM
+
+É basicamente a represetanção do fontsize da tela. Rem é uma unidade de medida usada no CSS para definir o tamanho de fontes, espaçamentos e outros elementos. É uma abreviação para "root em", que é definido como o tamanho da fonte do elemento raiz (ou seja, o elemento HTML). O tamanho da fonte padrão é 16px, então 1rem equivale a 16px, que é o padrão dos navegadores. Isso significa que, se você definir um elemento com 2rem, ele terá o tamanho de 32px.
+
+<aside>
+💡 É recomendado usar o tamanho relativo e não o tamanho fixo porque permite que o usuário consiga nas configurações de acessibilidade do sistema aumentar e diminuir o texto e isso reflete também nos lugares que está sendo usado a medida rem.
+
+```
+1rem => 16px
+0.25rem => 4px
+2rem => 32px
+```
+</aside>
+
+
+<aside>
+💡 Deixa a fonte mais nítida para browsers baseados no chromium
+
+```
+body {
+    -webkit-font-smoothing: antialiased;
+}
+```
+</aside>
+
+
+## Phosphor
+
+Dependência para adicionar icons no react
+
+Para instalar
+```
+npm i phosphor-react
+```
+
